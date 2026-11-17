@@ -1,0 +1,690 @@
+/* ==========================================================================
+   AMANAH STORE - FULLY RESPONSIVE LOGIN PAGE (ALL-DEVICE COMPATIBLE)
+   100% Guaranteed Responsiveness: Mobile (Small & Large), Tablet, POS, & Desktop
+   ========================================================================== */
+
+:root {
+  /* Exact Colors Sampled from UI Design Assets */
+  --bg-gradient-top: #f2f4ba;
+  --bg-gradient-mid: #faf8de;
+  --bg-gradient-base: #fcfae4;
+
+  --color-primary: #5d6300;
+  --color-primary-dark: #4d5300;
+  --color-primary-light: #e3ea7b;
+  --color-primary-subtle: #eff2af;
+  --color-primary-tint: #eef2ad;
+
+  --color-text-main: #1c1c0f;
+  --color-text-body: #474832;
+  --color-text-muted: #7d7d67;
+  --color-placeholder: #8e8f85;
+
+  --color-card-bg: #ffffff;
+  --color-card-border: #f0f2df;
+  --color-input-border: #d5d7c8;
+  --color-input-focus: #5d6300;
+  --color-divider: #e8e8dc;
+  --color-bottom-line: #f0f0e6;
+
+  --color-whatsapp: #10b981;
+
+  --font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* CSS Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh; /* Dynamic viewport height for mobile browsers */
+  font-family: var(--font-family);
+  background: linear-gradient(180deg, var(--bg-gradient-top) 0%, var(--bg-gradient-mid) 140px, var(--bg-gradient-base) 280px, var(--bg-gradient-base) 100%);
+  color: var(--color-text-body);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Subtle Desktop Ambient Lighting */
+.bg-glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.45;
+}
+
+.bg-glow-1 {
+  width: 480px;
+  height: 480px;
+  background: radial-gradient(circle, rgba(202, 213, 1, 0.22) 0%, rgba(252, 250, 228, 0) 70%);
+  top: -100px;
+  left: 15%;
+}
+
+.bg-glow-2 {
+  width: 520px;
+  height: 520px;
+  background: radial-gradient(circle, rgba(134, 142, 1, 0.15) 0%, rgba(252, 250, 228, 0) 70%);
+  bottom: 0;
+  right: 12%;
+}
+
+/* Main Outer Wrapper */
+.desktop-wrapper {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 1200px;
+  min-height: 100vh;
+  min-height: 100dvh;
+  margin: 0 auto;
+  padding: 28px 24px 32px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* ==========================================================================
+   1. TOP BAR
+   ========================================================================== */
+.top-bar {
+  width: 100%;
+  max-width: 450px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 28px;
+  margin-bottom: 22px;
+}
+
+/* Server Online Pill */
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  height: 26px;
+  padding: 0 13px;
+  background-color: #ffffff;
+  border: 1px solid #ebebdb;
+  border-radius: 9999px;
+  gap: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+}
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+  background-color: var(--color-primary);
+  border-radius: 50%;
+  display: inline-block;
+  animation: pulse-dot 2.5s infinite ease-in-out;
+}
+
+@keyframes pulse-dot {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.75;
+  }
+}
+
+.status-text {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--color-text-body);
+  letter-spacing: -0.1px;
+}
+
+/* Trust Badge (Aman & Resmi) */
+.trust-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-text-body);
+}
+
+.trust-icon {
+  width: 16px;
+  height: 16px;
+  color: var(--color-primary);
+}
+
+/* ==========================================================================
+   2. MAIN CONTENT AREA
+   ========================================================================== */
+.main-content {
+  width: 100%;
+  max-width: 450px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Brand Section */
+.brand-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 4px;
+}
+
+/* Brand Logo */
+.brand-logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 12px;
+  transition: transform 0.25s ease;
+}
+
+.brand-logo-container:hover {
+  transform: translateY(-2px);
+}
+
+.brand-logo-img {
+  width: 72px;
+  height: 72px;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 6px 16px rgba(134, 142, 1, 0.3));
+}
+
+/* Brand Title */
+.brand-title {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--color-text-main);
+  margin-bottom: 10px;
+  letter-spacing: -0.3px;
+}
+
+/* Category Pill Badge */
+.category-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  background-color: var(--color-primary-light);
+  border-radius: 9999px;
+  padding: 4.5px 16px;
+  margin-bottom: 22px;
+  max-width: 100%;
+}
+
+.category-icon {
+  width: 13px;
+  height: 13px;
+  color: #474e00;
+  flex-shrink: 0;
+}
+
+.category-badge span {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  color: #474e00;
+}
+
+/* Welcome Headings */
+.welcome-heading {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--color-text-main);
+  margin-bottom: 7px;
+  letter-spacing: -0.2px;
+}
+
+.welcome-subtext {
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--color-text-body);
+  line-height: 1.5;
+  margin-bottom: 24px;
+}
+
+/* ==========================================================================
+   3. LOGIN CARD
+   ========================================================================== */
+.card-login {
+  width: 100%;
+  background-color: var(--color-card-bg);
+  border-radius: 24px;
+  padding: 26px 26px 22px 26px;
+  box-shadow: 
+    0 16px 40px -8px rgba(93, 99, 0, 0.08), 
+    0 4px 16px -2px rgba(0, 0, 0, 0.03);
+  border: 1px solid var(--color-card-border);
+  margin-bottom: 16px;
+  transition: box-shadow 0.3s ease;
+}
+
+.card-login:hover {
+  box-shadow: 
+    0 20px 48px -8px rgba(93, 99, 0, 0.11), 
+    0 6px 20px -2px rgba(0, 0, 0, 0.04);
+}
+
+.form-group {
+  margin-bottom: 16px;
+}
+
+.form-label {
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--color-text-main);
+  margin-bottom: 7px;
+}
+
+.label-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 7px;
+}
+
+.forgot-link {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: opacity 0.2s, text-decoration 0.2s;
+}
+
+.forgot-link:hover {
+  opacity: 0.85;
+  text-decoration: underline;
+}
+
+/* Input Fields */
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-icon-left {
+  position: absolute;
+  left: 14px;
+  width: 19px;
+  height: 19px;
+  color: var(--color-text-body);
+  pointer-events: none;
+  transition: color 0.2s;
+}
+
+.input-wrapper input {
+  width: 100%;
+  height: 48px;
+  border: 1.5px solid var(--color-input-border);
+  border-radius: 12px;
+  padding: 0 16px 0 44px;
+  font-family: var(--font-family);
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--color-text-main);
+  background-color: #ffffff;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s, background-color 0.2s;
+}
+
+.input-wrapper input[type="password"] {
+  padding-right: 44px;
+}
+
+.input-wrapper input::placeholder {
+  color: var(--color-placeholder);
+  font-size: 13.5px;
+  font-weight: 400;
+}
+
+.input-wrapper input:focus {
+  border-color: var(--color-input-focus);
+  box-shadow: 0 0 0 3px rgba(93, 99, 0, 0.14);
+}
+
+.input-wrapper:focus-within .input-icon-left {
+  color: var(--color-primary);
+}
+
+/* Toggle Password Button */
+.btn-toggle-password {
+  position: absolute;
+  right: 12px;
+  background: none;
+  border: none;
+  padding: 6px;
+  cursor: pointer;
+  color: var(--color-text-body);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  transition: color 0.2s, background-color 0.2s;
+}
+
+.btn-toggle-password:hover {
+  color: var(--color-primary);
+  background-color: #f7f8ee;
+}
+
+.btn-toggle-password svg {
+  width: 20px;
+  height: 20px;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* Remember Me & Aman Badge */
+.remember-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 16px;
+  margin-bottom: 20px;
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.checkbox-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.custom-checkbox {
+  width: 19px;
+  height: 19px;
+  border-radius: 5px;
+  background-color: #ffffff;
+  border: 1.5px solid var(--color-input-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
+}
+
+.checkbox-container:hover .custom-checkbox {
+  border-color: var(--color-primary);
+}
+
+.checkbox-container input:checked ~ .custom-checkbox {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.check-icon {
+  width: 13px;
+  height: 13px;
+  color: #ffffff;
+  opacity: 0;
+  transition: opacity 0.15s ease-in-out;
+}
+
+.checkbox-container input:checked ~ .custom-checkbox .check-icon {
+  opacity: 1;
+}
+
+.checkbox-label {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--color-text-main);
+  transition: color 0.2s;
+}
+
+.checkbox-container:hover .checkbox-label {
+  color: var(--color-primary);
+}
+
+.badge-aman {
+  background-color: var(--color-primary-tint);
+  color: var(--color-primary);
+  font-size: 11.5px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 6px;
+}
+
+/* Primary Submit Button */
+.btn-submit {
+  width: 100%;
+  height: 50px;
+  border-radius: 12px;
+  background-color: var(--color-primary);
+  color: #ffffff;
+  border: none;
+  font-family: var(--font-family);
+  font-size: 15px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(93, 99, 0, 0.35);
+  transition: background-color 0.2s, transform 0.1s, box-shadow 0.2s;
+}
+
+.btn-submit:hover {
+  background-color: var(--color-primary-dark);
+  box-shadow: 0 6px 18px rgba(93, 99, 0, 0.45);
+  transform: translateY(-1px);
+}
+
+.btn-submit:active {
+  transform: translateY(0) scale(0.99);
+}
+
+.btn-icon {
+  width: 19px;
+  height: 19px;
+  color: #ffffff;
+}
+
+/* Divider */
+.divider-row {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.divider-line {
+  flex: 1;
+  height: 1px;
+  background-color: var(--color-divider);
+}
+
+.divider-text {
+  font-size: 11.5px;
+  font-weight: 500;
+  color: var(--color-text-body);
+  white-space: nowrap;
+}
+
+/* Bottom Inset Line */
+.card-bottom-line {
+  margin-top: 18px;
+  width: 100%;
+  height: 1px;
+  background-color: var(--color-bottom-line);
+}
+
+/* ==========================================================================
+   4. SECURITY INFO BANNER
+   ========================================================================== */
+.security-banner {
+  width: 100%;
+  background-color: var(--color-primary-subtle);
+  border-radius: 16px;
+  padding: 11px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 11px;
+  margin-bottom: 20px;
+  transition: transform 0.2s ease;
+}
+
+.security-banner:hover {
+  transform: translateY(-1px);
+}
+
+.banner-lock-icon {
+  width: 19px;
+  height: 19px;
+  color: #525800;
+  flex-shrink: 0;
+}
+
+.security-banner-text {
+  font-size: 12px;
+  font-weight: 600;
+  color: #525800;
+  line-height: 1.35;
+  text-align: center;
+}
+
+/* ==========================================================================
+   5. APP FOOTER
+   ========================================================================== */
+.app-footer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.support-row {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 7px;
+  font-size: 12.5px;
+  text-align: center;
+}
+
+.support-icon {
+  width: 18px;
+  height: 18px;
+  color: var(--color-whatsapp);
+  flex-shrink: 0;
+}
+
+.support-text {
+  font-weight: 600;
+  color: var(--color-text-body);
+}
+
+.support-link {
+  font-weight: 700;
+  color: var(--color-primary);
+  text-decoration: underline;
+  transition: opacity 0.2s;
+}
+
+.support-link:hover {
+  opacity: 0.85;
+}
+
+.version-row {
+  font-size: 11.5px;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  text-align: center;
+}
+
+/* ==========================================================================
+   RESPONSIVE BREAKPOINTS (ALL-DEVICE SUPPORT)
+   ========================================================================== */
+
+/* Tablet & Mobile (max-width: 600px) */
+@media (max-width: 600px) {
+  .desktop-wrapper {
+    padding: 22px 16px 20px 16px;
+  }
+  
+  .top-bar, .main-content {
+    max-width: 100%;
+  }
+
+  .card-login {
+    padding: 22px 18px 20px 18px;
+  }
+
+  .bg-glow {
+    display: none; /* Hemat baterai & performa grafis ponsel */
+  }
+}
+
+/* Mobile Small (max-width: 380px e.g. iPhone SE / Galaxy Mini) */
+@media (max-width: 380px) {
+  .desktop-wrapper {
+    padding: 16px 12px 16px 12px;
+  }
+
+  .brand-title {
+    font-size: 20px;
+  }
+
+  .category-badge span {
+    font-size: 9px;
+  }
+
+  .welcome-heading {
+    font-size: 16px;
+  }
+
+  .welcome-subtext {
+    font-size: 12px;
+  }
+
+  .input-wrapper input {
+    font-size: 12.5px;
+  }
+
+  .checkbox-label {
+    font-size: 11.5px;
+  }
+
+  .security-banner-text {
+    font-size: 11px;
+  }
+
+  .support-row {
+    font-size: 11.5px;
+  }
+}
