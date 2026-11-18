@@ -1,0 +1,8 @@
+# Environment and local secret configuration
+.env
+
+# VS Code settings
+.vscode/
+
+# Local folders
+.gitiqnore/

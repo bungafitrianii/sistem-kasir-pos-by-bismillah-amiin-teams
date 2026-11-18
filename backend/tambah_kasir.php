@@ -1,5 +1,9 @@
 <?php
-require_once __DIR__ . '/auth.php';
+if (file_exists(__DIR__ . '/auth.php')) {
+    require_once __DIR__ . '/auth.php';
+} else {
+    require_once __DIR__ . '/../auth.php';
+}
 require_role('owner');   // hanya owner yang boleh menambah kasir
 
 $pesan = '';

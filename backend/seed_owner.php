@@ -8,7 +8,11 @@ if (PHP_SAPI !== 'cli') {
     http_response_code(403);
     exit('Hanya bisa dijalankan dari terminal.');
 }
-require_once __DIR__ . '/config.php';
+if (file_exists(__DIR__ . '/config.php')) {
+    require_once __DIR__ . '/config.php';
+} else {
+    require_once __DIR__ . '/../config.php';
+}
 
 $sudah = db()->query("SELECT COUNT(*) FROM users WHERE role = 'owner'")->fetchColumn();
 if ($sudah > 0) {

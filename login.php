@@ -14,7 +14,7 @@ const HASH_PALSU = '$2y$10$usesomesillystringforsalt.abcdefghijklmnopqrstuvwxyz0
 $error = '';
 $email = '';
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST') {
     $email    = trim($_POST['email'] ?? '');
     $password = $_POST['password'] ?? '';
 
@@ -54,7 +54,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 ?>
-<!DOCTYPE html>
 <!DOCTYPE html>
 <html lang="id">
 
@@ -123,8 +122,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                     <!-- Pesan Error -->
                     <?php if (!empty($error)): ?>
-                        <div class="err">
-                            <?= e($error) ?>
+                        <div class="err" role="alert">
+                            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <line x1="12" y1="8" x2="12" y2="12"></line>
+                                <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                            </svg>
+                            <span><?= e($error) ?></span>
                         </div>
                     <?php endif; ?>
                     <!-- Field Email / Username -->
@@ -140,6 +144,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                 type="text"
                                 id="email"
                                 name="email"
+                                value="<?= e($email) ?>"
                                 placeholder="contoh: pakhaji@amanahstore.id atau 0"
                                 required
                                 autocomplete="username">

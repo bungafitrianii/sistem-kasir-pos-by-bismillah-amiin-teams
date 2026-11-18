@@ -5,7 +5,11 @@
 //   require_login();                // semua user yang sudah login
 //   require_role('owner');          // khusus owner
 // ============================================================
-require_once __DIR__ . '/config.php';
+if (file_exists(__DIR__ . '/config.php')) {
+    require_once __DIR__ . '/config.php';
+} else {
+    require_once __DIR__ . '/../config.php';
+}
 
 function current_user(): ?array
 {
